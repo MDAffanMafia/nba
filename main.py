@@ -1723,7 +1723,7 @@ def co_attainment():
       external=int(attainment_external[0])
       final_assesment.append(Round1((0.4*float(enternal))+(0.6*float(external)))) 
   if select_attainment!=[] and final_assesment!=[]: 
-    for t in range(0,5): 
+    for t in range(1,6): 
       if t==1:
         select_attainment.CO1_level=final_assesment[t]
       elif t==2:  
@@ -1732,22 +1732,26 @@ def co_attainment():
         select_attainment.CO3_level=final_assesment[t]
       elif t==4:  
         select_attainment.CO4_level=final_assesment[t]
-      else:  
+      elif t==5:  
         select_attainment.CO5_level=final_assesment[t]
-    db.session.commit()    
+      else:
+        print("over")
+      db.session.commit()    
   else:
     if final_assesment!=[]:
-     for t in range(0,5):
+     for t in range(1,6):
        if t==1:
-         CO1_Level=final_assesment[t]
+         CO1_Level=final_assesment[0]
        elif t==2:  
-         CO2_Level=final_assesment[t]
+         CO2_Level=final_assesment[1]
        elif t==3:  
-         CO3_Level=final_assesment[t]
+         CO3_Level=final_assesment[2]
        elif t==4:  
-         CO4_Level=final_assesment[t]
-       else:  
-         CO5_Level=final_assesment[t]
+         CO4_Level=final_assesment[3]
+       elif t==5:  
+         CO5_Level=final_assesment[4]
+       else:
+         print("over")
     entry=Total_attainment(
       CO1_level=CO1_Level,
       CO2_level=CO2_Level,
