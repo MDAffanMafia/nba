@@ -1,0 +1,129 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    PO Mapping
+{% endblock %}
+
+
+{% block view %}
+
+    
+    <div class="layout-view" >
+        <hr>
+        <h3>PO-Attainment</h3>
+        <!--
+        <div>
+          <h3>New Course Outcome Statement</h3>
+          <div class="form-row row-in">
+            <div class="col">
+              <input type="text" class="form-control" id="CO-stat" required placeholder="New Course Outcome Statement">
+            </div>
+            <div class="col">
+                <input type="submit" class="btn btn-primary" value="Add new">
+            </div>
+          </div>
+        -->
+        </div>
+        <hr>
+        <div>
+          <h3 style="align-items: center;">PO Direct Attainment</h3>
+          <table class="table table-me">
+            <thead class="thead-dark">
+              <tr >
+                 <td style="background-color:#212529  ;color: aliceblue;" colspan="2">Achived CO Through IA+EA</td>
+             </tr>
+
+                 {%for i in range(0,5)%}
+             <tr>
+                 {% if rows[i]!=None %}
+                 <td>{{rows[i]}}</td>
+                 {% endif %}
+                 {% if final_assesment[i]!=None %}
+                 <td>{{final_assesment[i]}}</td>
+                 {% endif %}
+             </tr>     
+                 {% endfor%}
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+          <table class="table table-me">
+            <thead class="thead-dark">
+              <tr >
+                 <td style="background-color:#212529  ;color: aliceblue;" colspan="10">CO-PO-PSO Mapping</td>
+                </tr>
+                <tr>
+                    <td>CO CODES</td>
+                    <td>PO1</td>
+                    <td>PO2</td>
+                    <td>PO3</td>
+                    <td>PO4</td>
+                    <td>PO5</td>
+                    <td>PO6</td>
+                    <td>PO7</td>
+                    <td>PSO1</td>
+                    <td>PSO2</td>
+                </tr>
+                {% for rows in co_mapping%}
+                <tr>
+                    <td>{{rows.coCode}}</td>
+                    <td>{{rows.po1}}</td>
+                    <td>{{rows.po2}}</td>
+                    <td>{{rows.po3}}</td>
+                    <td>{{rows.po4}}</td>
+                    <td>{{rows.po5}}</td>
+                    <td>{{rows.po6}}</td>
+                    <td>{{rows.po7}}</td>
+                    <td>{{rows.pso1}}</td>
+                    <td>{{rows.pso1}}</td>
+                </tr>
+
+                {% endfor%}
+
+                
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+          <table class="table table-me">
+            <thead class="thead-dark">
+              <tr >
+                 <td style="background-color:#212529  ;color: aliceblue;" colspan="10">PO direct Attainment</td>
+                </tr>
+                <tr>
+                    <td>PO</td>
+                    <td>PO1</td>
+                    <td>PO2</td>
+                    <td>PO3</td>
+                    <td>PO4</td>
+                    <td>PO5</td>
+                    <td>PO6</td>
+                    <td>PO7</td>
+                    <td>PSO1</td>
+                    <td>PSO2</td>
+                </tr>
+                <tr>
+                    <td>{{coCode[0]}}</td>
+                    {% for u in range(0,9) %}
+                      <td>{{po_direct[u]}}</td>
+                    {% endfor %}
+                </tr>
+                
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+    <div class="proceed">
+      <hr>
+      <a href="/"><input type="button" class="btn btn-primary" value="Return To Index"></a>
+      <a href="/dashboard" ><input type="button"  class="btn btn-primary" value="Return To Dashboard"></a>
+    </div>
+
+
+{% endblock %}

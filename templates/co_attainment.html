@@ -1,0 +1,135 @@
+{% extends "layout.html" %} 
+
+{% block title %}
+    CO Mapping
+{% endblock %}
+
+
+{% block view %}
+
+    
+    <div class="layout-view" >
+        <hr>
+        <h3>CO-Attainment</h3>
+        <!--
+        <div>
+          <h3>New Course Outcome Statement</h3>
+          <div class="form-row row-in">
+            <div class="col">
+              <input type="text" class="form-control" id="CO-stat" required placeholder="New Course Outcome Statement">
+            </div>
+            <div class="col">
+                <input type="submit" class="btn btn-primary" value="Add new">
+            </div>
+          </div>
+        -->
+        </div>
+        <hr>
+        <div>
+          <h3>CO ATTAINMENT THROUGH IA + EA</h3>
+          <table class="table table-me">
+            <thead class="thead-dark">
+              <tr>
+                <td style="background-color:#212529  ;color: aliceblue;" rowspan="2">Attainment Type</td>
+                <td style="background-color:#212529 ;color: aliceblue;" rowspan="2">Tool</td>
+                <td style="background-color:#212529 ;color: aliceblue;" rowspan="1" colspan="5">Attainment Level achieved for various tools for attainment calculation</td>
+              </tr>
+              <tr>
+                {%for row in rows %}
+                <td style="background-color:#212529 ;color: aliceblue;" rowspan="1" >{{row.coCode}}</td>
+                {% endfor%}
+              </tr>
+              <tr>  
+                <td style="background-color:#212529 ;color: aliceblue;" rowspan="5">Internal Assesment</td>
+                <td style="background-color:#212529 ;color: aliceblue;">Class Test</td>
+                {% for row in rows1%}
+                 <td>{{row.CO1_Level}}</td>
+                 <td>{{row.CO2_Level}}</td>
+                 <td>{{row.CO3_Level}}</td>
+                {% endfor %}
+                {%for row in rows2 %}
+                <td>{{row.CO4_Level}}</td>
+                <td>{{row.CO5_Level}}</td>
+                {% endfor%}
+            </tr>
+            <tr>
+              <td style="background-color:#212529 ;color: aliceblue;">Micro Project</td>
+              {% for row in rows3%}
+                <td>{{row.attainment_level_acheived_Co1}}</td>
+                <td>{{row.attainment_level_acheived_Co2}}</td>
+                <td>{{row.attainment_level_acheived_Co3}}</td>
+                <td>{{row.attainment_level_acheived_Co4}}</td>
+                <td>{{row.attainment_level_acheived_Co5}}</td>
+              {% endfor%}
+            </tr>
+            <td style="background-color:#212529 ;color: aliceblue;">ESE PR@</td>  
+                <td>NA</td>
+                <td>NA</td>
+                <td>NA</td>
+                <td>NA</td>
+                <td>NA</td>
+            </tr>
+            <tr>
+           <td style="background-color:#212529 ;color: aliceblue;">PR PA</td>
+           {% for n in range(0,5) %}
+           <td>{{attainment_prpa[n]}}</td>
+           {% endfor %}
+            </tr>
+            <tr>
+              <td style="background-color:#212529 ;color: aliceblue;">Attainment Level</td>
+              {% for n in range(0,5) %}
+              <td>{{attainment_internal[n]}}</td>
+              {% endfor %}
+            </tr>
+            <tr >
+              <td style="background-color:#212529 ;color: aliceblue;" rowspan="3">External Assesment</td>
+              <td style="background-color:#212529 ;color: aliceblue;">ESE Theory</td>
+              {% for row in rows4 %}
+               <td>{{row.TH_Level}}</td>
+               <td>{{row.TH_Level}}</td>
+               <td>{{row.TH_Level}}</td>
+               <td>{{row.TH_Level}}</td>
+               <td>{{row.TH_Level}}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+              <td style="background-color:#212529 ;color: aliceblue;">ESE PR</td>
+              {% for row in rows4 %}
+               <td>{{row.PR_Level}}</td>
+               <td>{{row.PR_Level}}</td>
+               <td>{{row.PR_Level}}</td>
+               <td>{{row.PR_Level}}</td>
+               <td>{{row.PR_Level}}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+               <td style="background-color:#212529 ;color: aliceblue;">Attainment Level</td>
+                 <td>{{attainment_external[0]}}</td>
+                 <td>{{attainment_external[0]}}</td>
+                 <td>{{attainment_external[0]}}</td>
+                 <td>{{attainment_external[0]}}</td>
+                 <td>{{attainment_external[0]}}</td>
+          
+            </tr>
+            <tr>
+              <td style="background-color:#212529 ;color: aliceblue;" colspan="2">Final direct Attainment</td>
+              {% for n in range(0,5)%}
+                <td>{{final_assesment[n]}}</td>
+              {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+    <div class="proceed">
+      <hr>
+      <a href="/"><input type="button" class="btn btn-primary" value="Return To Index"></a>
+      <a href="/dashboard" ><input type="button"  class="btn btn-primary" value="Return To Dashboard"></a>
+    </div>
+
+
+{% endblock %}
