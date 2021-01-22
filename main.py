@@ -1831,7 +1831,7 @@ def po_attainment():
     print("final pos",final_pos[y])
   
 
-  if po_attainment!=[] and final_pos!=[]: 
+  if po_attainment!=None and final_pos!=[]: 
     for t in range(0,9): 
       if t==1:
        po_attainment.finalpo1=final_pos[t]
