@@ -1722,7 +1722,7 @@ def co_attainment():
       enternal=int(attainment_internal[k])
       external=int(attainment_external[0])
       final_assesment.append(Round1((0.4*float(enternal))+(0.6*float(external)))) 
-  if select_attainment!=[] and final_assesment!=[]: 
+  if select_attainment!=None and final_assesment!=[]: 
     for t in range(1,6): 
       if t==1:
         select_attainment.CO1_level=final_assesment[t]
